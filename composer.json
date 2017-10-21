@@ -16,9 +16,8 @@
   ],
   "require": {
     "php": ">=5.4.0",
-    "anahkiasen/underscore-php": "~1.3",
-    "opauth/flickr": "~1.1",
-    "themattharris/tmhoauth": "0.8.*"
+    "anahkiasen/underscore-php": "~2.0",
+    "opauth/flickr": "~1.2",
   },
   "require-dev": {
     "mockery/mockery": "0.9.*"
