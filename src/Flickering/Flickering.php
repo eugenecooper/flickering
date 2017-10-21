@@ -247,6 +247,7 @@ class Flickering
         $config['Strategy']['Flickr']['key']    = $this->consumer->getKey();
         $config['Strategy']['Flickr']['secret'] = $this->consumer->getSecret();
         $config['callback_transport']           = 'post';
+        $config['security_salt']                = uniqid();
 
         return $config;
     }
