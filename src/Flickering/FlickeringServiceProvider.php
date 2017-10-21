@@ -29,7 +29,6 @@ class FlickeringServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->bindCoreClasses();
         $this->bindClasses();
     }
 
@@ -46,35 +45,6 @@ class FlickeringServiceProvider extends ServiceProvider
     ////////////////////////////////////////////////////////////////////
     /////////////////////////// CLASS BINDINGS /////////////////////////
     ////////////////////////////////////////////////////////////////////
-
-    /**
-     * Bind the core classes
-     */
-    public function bindCoreClasses()
-    {
-        $this->app->bindIf('request', function () {
-            return HttpRequest::createFromGlobals();
-        }, true);
-
-        $this->app->bindIf('config', function () {
-            $fileloader = new FileLoader(new Filesystem(), __DIR__.'/../config');
-
-            return new Config($fileloader, 'config');
-        }, true);
-
-        $this->app->bindIf('cache', function () {
-            $fileStore = new FileStore(new Filesystem(), __DIR__.'/../../cache');
-
-            return new Cache($fileStore);
-        });
-
-        $this->app->bindIf('session', function () {
-            return new Session();
-        }, true);
-
-        // Register config file
-        $this->app['config']->package('anahkiasen/flickering', __DIR__.'/../config');
-    }
 
     /**
      * Bind the Rocketeer classes to the Container
